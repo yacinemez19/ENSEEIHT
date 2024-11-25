@@ -1,0 +1,8 @@
+% Fonction tirages_aleatoires (exercice_2.m)
+
+function [tirages_C,tirages_R] = tirages_aleatoires_uniformes(n_tirages,G,R_moyen)
+
+    tirages_C = (R_moyen * rand (n_tirages, 2)) - G ;
+    tirages_R = R_moyen;
+
+end

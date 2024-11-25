@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="Coq" version="8.11.0" timelimit="0" steplimit="0" memlimit="0"/>
+<prover id="1" name="CVC4" version="1.6" alternative="counterexamples" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="3" name="CVC4" version="1.6" timelimit="5" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/>
+<path name="enquete.mlw"/>
+<theory name="Enquete">
+ <goal name="Thm00">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ <proof prover="2"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="Thm01" proved="true">
+ <proof prover="3"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="Thm02">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="Thm03" proved="true">
+ <proof prover="3"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="Thm04">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ <proof prover="2"><result status="unknown" time="0.02"/></proof>
+ </goal>
+ <goal name="Thm05" proved="true">
+ <proof prover="3"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="Thm06">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="Thm07" proved="true">
+ <proof prover="2"><result status="valid" time="0.00" steps="7"/></proof>
+ </goal>
+ <goal name="Thm08">
+ <proof prover="0" obsolete="true" edited="enquete_Enquete_Thm08_1.v"><result status="unknown" time="0.00" steps="0"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="Thm09" proved="true">
+ <proof prover="3"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="Thm10">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="Thm11">
+ </goal>
+ <goal name="Thm12">
+ </goal>
+</theory>
+</file>
+</why3session>
