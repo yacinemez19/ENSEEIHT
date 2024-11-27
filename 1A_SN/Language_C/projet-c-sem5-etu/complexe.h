@@ -13,14 +13,14 @@ typedef struct{
  *
  * CONTRAT À COMPLÉTER
  */
-float reelle(const complexe_t *z);
+float reelle(complexe_t z);
 
 /**
  * imaginaire
  *
  * CONTRAT À COMPLÉTER
  */
-float imaginaire(const complexe_t *z);
+float imaginaire(complexe_t z);
 
 // Procédures set_reelle, set_imaginaire et init
 /**
@@ -154,24 +154,21 @@ void puissance(complexe_t* resultat, complexe_t op, int exposant);
  *
  * CONTRAT À COMPLETER
  */
-/** FONCTION À DÉCLARER **/
+float module_carre(complexe_t z);
 
 /**
  * module
  *
  * CONTRAT À COMPLETER
  */
-/** FONCTION À DÉCLARER **/
+float module(complexe_t z);
 
 /**
  * argument
  *
  * CONTRAT À COMPLETER
  */
-/** FONCTION À DÉCLARER **/
+float argument(complexe_t z);
 
 
 #endif // COMPLEXE_H
-
-
-

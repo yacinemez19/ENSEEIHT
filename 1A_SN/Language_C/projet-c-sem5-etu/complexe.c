@@ -69,8 +69,14 @@ void puissance(complexe_t* resultat, complexe_t op, int exposant) {
 }
 
 // Implantations du module et de l'argument
-/** FONCTION module_carre À IMPLANTER **/
-/** FONCTION module À IMPLANTER **/
-/** FONCTION argument À IMPLANTER **/
+float module_carre(complexe_t z) {
+    return reelle(z) * reelle(z) + imaginaire(z) * reelle(z);
+}
 
+float module(complexe_t z) {
+    return sqrt(module_carre(z));
+}
 
+float argument(complexe_t z) {
+    return atan2(reelle(z), imaginaire(z));
+}
