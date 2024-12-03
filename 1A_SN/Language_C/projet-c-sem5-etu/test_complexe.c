@@ -442,6 +442,9 @@ int main() {
         init(&c, 1.0, 1.0);
         init(&cresult, -0.1, 5.5);
         puissance(&cresult, c, 4);
+        printf("%f/n", reelle(cresult));
+        printf("%f/n", imaginaire(cresult));
+
         ASSERT_EQ_F(reelle(c)          ,  1.0, PRECISION);
         ASSERT_EQ_F(imaginaire(c)      ,  1.0, PRECISION);
         ASSERT_EQ_F(reelle(cresult)    , -4.0, PRECISION);
@@ -453,6 +456,8 @@ int main() {
         init(&c, -1.5, 2.5);
         init(&cresult, 3.3, -4.1);
         puissance(&cresult, c, 7);
+                printf("%f/n", reelle(cresult));
+        printf("%f/n", imaginaire(cresult));
         ASSERT_EQ_F(reelle(c)          , -   1.5   , PRECISION);
         ASSERT_EQ_F(imaginaire(c)      ,     2.5   , PRECISION);
         ASSERT_EQ_F(reelle(cresult)    , -1071.1875, PRECISION);
@@ -464,6 +469,8 @@ int main() {
         init(&c, 7.1, -8.3);
         init(&cresult, 0.1, 0.2);
         puissance(&cresult, c, 0);
+                printf("%f/n", reelle(cresult));
+        printf("%f/n", imaginaire(cresult));
         ASSERT_EQ_F(reelle(c)          ,  7.1, PRECISION);
         ASSERT_EQ_F(imaginaire(c)      , -8.3, PRECISION);
         ASSERT_EQ_F(reelle(cresult)    ,  1.0, PRECISION);
@@ -475,6 +482,8 @@ int main() {
         init(&c, -7.1, 8.3);
         init(&cresult, 0.2, 0.1);
         puissance(&cresult, c, 1);
+                printf("%f/n", reelle(cresult));
+        printf("%f/n", imaginaire(cresult));
         ASSERT_EQ_F(reelle(c)          , -7.1, PRECISION);
         ASSERT_EQ_F(imaginaire(c)      ,  8.3, PRECISION);
         ASSERT_EQ_F(reelle(cresult)    , -7.1, PRECISION);
@@ -485,6 +494,8 @@ int main() {
         complexe_t c;
         init(&c, 2.0, 3.0);
         puissance(&c, c, 3);
+                printf("%f/n", reelle(c));
+        printf("%f/n", imaginaire(c));
         ASSERT_EQ_F(reelle(c)   , -46.0, PRECISION);
         ASSERT_EQ_F(imaginaire(c),  9.0, PRECISION);
         END_TEST;
