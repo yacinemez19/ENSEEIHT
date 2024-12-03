@@ -39,7 +39,7 @@ void conjugue(complexe_t* resultat, complexe_t op) {
 
 
 void ajouter(complexe_t* resultat, complexe_t gauche, complexe_t droite) {
-    init(resultat, reelle(gauche) + reelle(droite), reelle(gauche) + imaginaire(droite));
+    init(resultat, reelle(gauche) + reelle(droite), imaginaire(gauche) + imaginaire(droite));
 }
 
 
