@@ -70,7 +70,7 @@ void puissance(complexe_t* resultat, complexe_t op, int exposant) {
 
 // Implantations du module et de l'argument
 double module_carre(complexe_t z) {
-    return reelle(z) * reelle(z) + imaginaire(z) * reelle(z);
+    return reelle(z) * reelle(z) + imaginaire(z) * imaginaire(z);
 }
 
 double module(complexe_t z) {
