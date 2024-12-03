@@ -3,14 +3,14 @@ gcc -std=c99 -c -Wall -Wextra -pedantic -Werror -fsyntax-only -x c complexe.h
 Vérification de la syntaxe pour complexe.c :
 gcc -std=c99 -c -Wall -Wextra -pedantic -Werror -fsyntax-only -x c complexe.c
 In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/math.h:31,
-                 from complexe.c:3:
+                 from complexe.c:2:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:567:30: error: missing ')' after "__has_attribute"
  #if __has_cpp_attribute(clang::unsafe_buffer_usage)
                               ^
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:567:31: error:  ':' without preceding '?'
  #if __has_cpp_attribute(clang::unsafe_buffer_usage)
                                ^
-In file included from complexe.c:3:
+In file included from complexe.c:2:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/math.h:614:8: error: '_Float16' is not supported on this target
  extern _Float16 __fabsf16(_Float16) __API_AVAILABLE(macos(15.0), ios(18.0), watchos(11.0), tvos(18.0));
         ^~~~~~~~

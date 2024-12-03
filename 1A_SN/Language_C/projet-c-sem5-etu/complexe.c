@@ -2,27 +2,27 @@
 #include <math.h>           // Pour certaines fonctions trigo notamment
 
 // Implantations de reelle et imaginaire
-float reelle(complexe_t z) {
+double reelle(complexe_t z) {
     return z.re;
 }
 
-float imaginaire(complexe_t z) {
+double imaginaire(complexe_t z) {
     return z.im;
 }
 
 
 // Implantations de set_reelle et set_imaginaire
-void set_reelle(complexe_t *z, float nouvelle_valeur) {
+void set_reelle(complexe_t *z, double nouvelle_valeur) {
     z->re = nouvelle_valeur;
 }
 
 
-void set_imaginaire(complexe_t *z, float nouvelle_valeur) {
+void set_imaginaire(complexe_t *z, double nouvelle_valeur) {
     z->im = nouvelle_valeur;
 }
 
 
-void init(complexe_t *z, float partie_reelle, float partie_imaginaire) {
+void init(complexe_t *z, double partie_reelle, double partie_imaginaire) {
     set_reelle(z, partie_reelle);
     set_imaginaire(z, partie_imaginaire);
 }
@@ -49,8 +49,8 @@ void soustraire(complexe_t* resultat, complexe_t gauche, complexe_t droite) {
 
 
 void multiplier(complexe_t* resultat, complexe_t gauche, complexe_t droite) {
-    float partie_reelle = reelle(gauche)*reelle(droite) - imaginaire(gauche)*imaginaire(droite);
-    float partie_imaginaire = reelle(gauche)*imaginaire(droite) + imaginaire(gauche)*reelle(droite);
+    double partie_reelle = reelle(gauche)*reelle(droite) - imaginaire(gauche)*imaginaire(droite);
+    double partie_imaginaire = reelle(gauche)*imaginaire(droite) + imaginaire(gauche)*reelle(droite);
 
     init(resultat, partie_reelle, partie_imaginaire);
 }
@@ -69,14 +69,14 @@ void puissance(complexe_t* resultat, complexe_t op, int exposant) {
 }
 
 // Implantations du module et de l'argument
-float module_carre(complexe_t z) {
+double module_carre(complexe_t z) {
     return reelle(z) * reelle(z) + imaginaire(z) * reelle(z);
 }
 
-float module(complexe_t z) {
+double module(complexe_t z) {
     return sqrt(module_carre(z));
 }
 
-float argument(complexe_t z) {
+double argument(complexe_t z) {
     return atan2(reelle(z), imaginaire(z));
 }
