@@ -78,5 +78,5 @@ double module(complexe_t z) {
 }
 
 double argument(complexe_t z) {
-    return atan2(reelle(z), imaginaire(z));
+    return atan2(imaginaire(z), reelle(z));
 }
