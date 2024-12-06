@@ -10,37 +10,73 @@ typedef struct{
 // Fonctions reelle et imaginaire
 /**
  * reelle
+ * Renvoie la partie réelle du nombre complexe donné en entrée
  *
- * CONTRAT À COMPLÉTER
+ * Paramètres :
+ *   z          [in]  Complexe dont on cherche la partie réelle
+ *
+ * Retour : Re(z), la partie réelle du nombre complexe
+ * 
+ * Pré-conditions : z non null
+ * Post-conditions : resultat = z.re
  */
 double reelle(complexe_t z);
 
 /**
  * imaginaire
+ * Renvoie la partie imaginaire du nombre complexe donné en entrée
  *
- * CONTRAT À COMPLÉTER
- */
+ * Paramètres :
+ *   z          [in]  Complexe dont on cherche la partie imaginaire
+ *
+ * Retour : Im(z), la partie imaginaire du nombre complexe
+ * 
+ * Pré-conditions : z non null
+ * Post-condition : resultat = z.im
+ **/
 double imaginaire(complexe_t z);
 
 // Procédures set_reelle, set_imaginaire et init
 /**
  * set_reelle
- *
- * CONTRAT À COMPLÉTER
+ * Modifie la partie réelle du nombre complexe donné avec le nombre réel
+ * donné (dans cet ordre)
+ * 
+ * Paramètres :
+ *   z                  [in out]  Complexe dont on veut modifier la partie réelle
+ *   nouvelle_valeur    [in]      Nouvelle partie réelle
+ * 
+ * Pré-conditions : z non null et nouvelle_valeur non nulle
+ * Post-condition : reelle(z) = nouvelle_valeur
  */
 void set_reelle(complexe_t *z, double nouvelle_valeur);
 
 /**
  * set_imaginaire
- *
- * CONTRAT À COMPLÉTER
+ * Modifie la partie imaginaire du nombre complexe donné avec le nombre réel
+ * donné (dans cet ordre)
+ * 
+ * Paramètres :
+ *   z                  [in out]  Complexe dont on veut modifier la partie imaginaire
+ *   nouvelle_valeur    [in]      Nouvelle partie imaginaire
+ * 
+ * Pré-conditions : z non null et nouvelle_valeur non nulle
+ * Post-condition : imaginaire(z) = nouvelle_valeur
  */
 void set_imaginaire(complexe_t *z, double nouvelle_valeur);
 
 /**
  * init
- *
- * CONTRAT À COMPLÉTER
+ * Modifie la partie réelle et la partie imaginaire du nombre complexe donné
+ * avec les deux réels donnés (partie réelle puis imaginaire, dans cet ordre)
+ * 
+ * Paramètres :
+ *   z                  [out]       Complexe qu'on veut modifier
+ *   partie_reelle      [in]        Nouvelle partie imaginaire
+ *   partie_imaginaire  [in]        Nouvelle partie imaginaire
+ * 
+ * Pré-conditions : z non null et partie_reelle et partie_imaginaire non nulles
+ * Post-condition : reelle(z) = partie_reelle et imaginaire(z) = partie_imaginaire
  */
 void init(complexe_t *z, double partie_reelle, double partie_imaginaire);
 
@@ -151,22 +187,43 @@ void puissance(complexe_t* resultat, complexe_t op, int exposant);
 // Module et argument
 /**
  * module_carre
+ * Renvoie le module au carré du nombre complexe donné en entrée
  *
- * CONTRAT À COMPLETER
+ * Paramètres :
+ *   z          [in]  Complexe dont on cherche le module au carré
+ *
+ * Retour : |z|^2, module au carré de z
+ * 
+ * Pré-conditions : z non null
+ * Post-conditions : resultat = reelle(z)^2 + imagianaire(z)^2
  */
 double module_carre(complexe_t z);
 
 /**
  * module
+ * Renvoie le module du nombre complexe donné en entrée
  *
- * CONTRAT À COMPLETER
+ * Paramètres :
+ *   z          [in]  Complexe dont on cherche le module
+ *
+ * Retour : |z|, module de z
+ * 
+ * Pré-conditions : z non null
+ * Post-conditions : resultat = sqrt(module_carré(z))
  */
 double module(complexe_t z);
 
 /**
  * argument
+ * Renvoie l'argument du nombre complexe donné en entrée
  *
- * CONTRAT À COMPLETER
+ * Paramètres :
+ *   z          [in]  Complexe dont on cherche l'argument
+ *
+ * Retour : arg(z), argument de z
+ * 
+ * Pré-conditions : z non null
+ * Post-conditions : z = module(z) * (cos(resultat) + i * sin (résultat))
  */
 double argument(complexe_t z);
 
