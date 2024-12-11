@@ -10,11 +10,12 @@ function [X_VS,w,c,code_retour] = estim_param_SVM_dual(X,Y)
     [alpha, ~, code_retour, ~] = quadprog(H, f, [], [],Aeq, 0, zeros(size(Y)), []);
     
     epsilon = 10^-6;
-    X_VS = X(alpha > epsilon, :);
-    
-    w = X' * (alpha .* Y);
+    condition = alpha > epsilon;
+    X_VS = X(condition, :);
+    Y_VS = Y(condition);
+    Alpha_VS = alpha(condition);
 
-    Y_VS = Y(alpha > epsilon);
+    w = X_VS' * (Alpha_VS .* Y_VS);
 
     c = X_VS(1, :) * w - 1/Y_VS(1);
 end

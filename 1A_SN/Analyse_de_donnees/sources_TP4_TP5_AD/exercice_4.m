@@ -19,7 +19,7 @@ Y_app(Y_app == 2) = -1; % Changement du label pour utiliser le SVM
 Y_test(Y_test == 2) = -1; % Changement du label pour utiliser le SVM
 nb_donnees_app = size(X_app,1);
 nb_donnees_test = size(X_test,1);
-sigma = 0.01;
+sigma = 0.0055;
 lambda = 180;
 
 % Calcul du SVM optimal
