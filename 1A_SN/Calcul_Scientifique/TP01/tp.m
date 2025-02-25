@@ -27,12 +27,12 @@ U = gallery('orthog',n);
 D = eye(n);
 
 % Initialisation de la matrice pour recuperer les pertes d'orthogonalite
-po = zeros(2,k);
+po = zeros(4,k);
 
 for i = 1:k
   
   % Conditionnement de la matrice A
-  %TO DO: modifier D pour obtenir A tel K(A)=10^k
+  D(1,1) = 10^i;
   A = U*D*U';
   
   % Perte d'orthogonalite avec algorithme classique
@@ -42,6 +42,15 @@ for i = 1:k
   % Perte d'orthogonalite avec algorithme modifie
   Qmgs = mgs(A);
   po(2,i) = norm(eye(n)-Qmgs'*Qmgs);
+
+  % 2e passage : 
+  % Perte d'orthogonalite avec algorithme classique
+  Qcgs2 = cgs(Qcgs);
+  po(3,i) = norm(eye(n)-Qcgs2'*Qcgs2);
+  
+  % Perte d'orthogonalite avec algorithme modifie
+  Qmgs2 = mgs(Qmgs);
+  po(4,i) = norm(eye(n)-Qmgs2'*Qmgs2);
   
 end
 
@@ -54,9 +63,14 @@ figure('Position',[0.1*L,0.1*H,0.8*L,0.75*H])
     loglog(x,po(1,:),'r','lineWidth',2)
     hold on
     loglog(x,po(2,:),'b','lineWidth',2)
+    loglog(x,po(3,:),'m','lineWidth',2)
+    loglog(x,po(4,:),'c','lineWidth',2)
+
     grid on
     leg = legend('Gram-Schmidt classique',...
                  'Gram-Schmidt modifie',...
+                 'Gram-Schmidt classique 2',...
+                 'Gram-Schmidt modifie 2',...
                  'Location','NorthWest');
     set(leg,'FontSize',14);
     xlim([x(1) x(end)])

@@ -12,9 +12,14 @@ function Q = mgs(A)
     % Initialisation de la matrice Q avec la matrice A
     Q = A;
     
-    %------------------------------------------------
-    % A remplir
     % Algorithme de Gram-Schmidt modifie
-    %------------------------------------------------
+    Q(:,1) = Q(:,1)/norm(Q(:,1));
+    for i = 2:m
+        for j = 1:i-1
+            Q(:,i) = Q(:,i) - (Q(:,j)'* Q(:,i)) * Q(:,j);
+        end
+        Q(:,i) = Q(:,i)/norm(Q(:,i));
+    end
+
 
 end
