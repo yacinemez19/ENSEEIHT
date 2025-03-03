@@ -15,6 +15,7 @@ function Q = cgs(A)
     % Algorithme de Gram-Schmidt classique
     Q(:,1) = Q(:,1)/norm(Q(:,1));
     for i = 2:m
+        Comp = 
         for j = 1:i-1
             Q(:,i) = Q(:,i) - (Q(:,j)'* A(:,i)) * Q(:,j);
         end
