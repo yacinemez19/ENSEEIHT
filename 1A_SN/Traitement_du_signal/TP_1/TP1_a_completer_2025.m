@@ -51,9 +51,10 @@ title(['Tracé d''un cosinus numérique de fréquence ' num2str(f0) 'Hz']);
 %Sans zero padding 
 X=fft(x);
 %Avec zero padding (ZP : paramètre de zero padding à définir)         
-ZP = floor(N*0.0)+1;
-size([x, zeros(1, ZP)])
-X_ZP=fft([x, zeros(1, ZP)]);
+ZP = 512;
+%size([x, zeros(1, ZP)])
+%X_ZP=fft([x, zeros(1, ZP)]);
+X_ZP = fft(x, ZP);
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TRACE DU MODULE DE LA TFD DU COSINUS NUMERIQUE EN ECHELLE LOG
@@ -66,7 +67,7 @@ X_ZP=fft([x, zeros(1, ZP)]);
 figure('name',['Tracé du module de la TFD d''un cosinus numérique de fréquence ' num2str(f0) 'Hz'])
 
 subplot(2,1,1)
-echelle_frequentielle=Fe*(0:N-1)/N;
+echelle_frequentielle=0:Fe/N:Fe*((N-1)/N);
 semilogy(echelle_frequentielle, abs(X));
 grid
 title('Sans zero padding')
@@ -74,7 +75,7 @@ xlabel('Fréquence (Hz)')
 ylabel('|TFD|')
 
 subplot(2,1,2)
-echelle_frequentielle=Fe*(0:N+ZP-1)/(N+ZP-1);
+echelle_frequentielle=0:Fe/(ZP-1):Fe;
 semilogy(echelle_frequentielle, abs(X_ZP));
 grid
 title('Avec zero padding')
@@ -87,18 +88,20 @@ ylabel('|TFD|')
 % (utilisation de hold, de couleurs différentes et de legend)
 % !! UTILISER ICI fftshit POUR LE TRACE !!
 figure
-echelle_frequentielle="à completer";
-semilogy("à completer",'b');    %Tracé en bleu : 'b'
+echelle_frequentielle=-Fe*((N-1)/N)/2:Fe/N:Fe*((N-1)/N)/2;
+semilogy(echelle_frequentielle, fftshift(abs(X)),'b');    %Tracé en bleu : 'b'
 hold on
-echelle_frequentielle="à completer";
-semilogy("à completer",'r'); %Tracé en rouge : 'r'
+echelle_frequentielle=-Fe/2:Fe/(ZP-1):Fe/2;
+size(echelle_frequentielle)
+size([x,zeros(1, ZP-N)])
+semilogy(echelle_frequentielle, fftshift(abs(X_ZP)),'r'); %Tracé en rouge : 'r'
 grid
 legend('Sans zero padding','Avec zero padding')
 xlabel('Fréquence (Hz)')
 ylabel('|TFD|')
 title(['Tracé du module de la TFD d''un cosinus numérique de fréquence ' num2str(f0) 'Hz'])
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %CALCUL DE LA TFD DU COSINUS NUMERIQUE AVEC FENETRAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Application de la fenêtre de pondération de Hamming
